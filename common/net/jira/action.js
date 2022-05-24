@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 class CreateJiraIssueAction {
-    constructor (baseurl, project, issuetype, summary, description, labels, token, squad) {
+    constructor (baseurl, project, issuetype, summary, description, labels, token) {
         this.baseurl = baseurl;
         this.project = project;
         this.issuetype = issuetype;
@@ -9,13 +9,12 @@ class CreateJiraIssueAction {
         this.description = description;
         this.labels = labels;
         this.token = token;
-        this.squad = squad;
       }
 
       async execute() {
           let config = {
               headers: {
-                  'Authorization': `Basic ${this.token}`,
+                  'Authorization': `Bearer ${this.token}`,
               }
           }
 
@@ -30,10 +29,6 @@ class CreateJiraIssueAction {
                   "name": this.issuetype
                 },
                 "labels": this.labels,
-                /* required Squad field */
-                "customfield_11987": {
-                    "value": this.squad
-                }
 
             }
           }
