@@ -13,6 +13,9 @@ inputs:
   issuetype:
     description: "Type of the issue to be created. Example: 'Incident'"
     required: true
+  ghIssueUrl:
+    description: "URL of the GitHub Issue."
+    required: true
   summary:
     description: Issue summary
     required: true
@@ -21,9 +24,6 @@ inputs:
     required: false
   labels:
     description: Labels
-  jiraEmail:
-    description: Jira email
-    required: true
   jiraToken:
     description: Jira token
     required: true
